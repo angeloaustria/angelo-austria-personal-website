@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "@angeloaustria/angelo-ui": "^0.0.10",
-    "@tensorflow-models/qna": "^1.0.1",
-    "@tensorflow/tfjs": "^3.15.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -14,8 +12,6 @@
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "axios": "^0.26.1",
-    "brain.js": "^2.0.0-beta.11",
-    "isomorphic-fetch": "^3.0.0",
     "node-nlp": "^4.23.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
