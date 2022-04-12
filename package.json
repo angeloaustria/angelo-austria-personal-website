@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@angeloaustria/angelo-ui": "^0.0.10",
+    "@tensorflow-models/qna": "^1.0.1",
+    "@tensorflow/tfjs": "^3.15.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -10,8 +13,12 @@
     "@types/node": "^16.11.26",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "axios": "^0.26.1",
+    "brain.js": "^2.0.0-beta.11",
+    "isomorphic-fetch": "^3.0.0",
+    "node-nlp": "^4.23.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
@@ -39,5 +46,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.6.2"
+  },
+  "engines": {
+    "npm": "7.15.1",
+    "node": "16.3.0"
   }
 }
