@@ -1,0 +1,11 @@
+body {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+}
