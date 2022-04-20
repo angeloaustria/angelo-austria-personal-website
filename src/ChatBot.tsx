@@ -2,6 +2,14 @@ import { Button, Chat, Heading, Input } from "@angeloaustria/angelo-ui";
 import React from "react";
 import api from "./services/api";
 
+const suggestedPrompts = {
+  greeting: "hello",
+  introduction: "who are you?",
+  favouriteFood: "favourite food?",
+  career: "where do you work?",
+  crypto: "crypto?",
+};
+
 interface ChatMessage {
   timestamp: Date;
   isAngelo: boolean;
@@ -20,6 +28,19 @@ const ChatBot: React.FC = () => {
     setUserInput("");
     const res = await api.post("https://angelo-qna.herokuapp.com/angeloqna", {
       message: userInput,
+    });
+    setChatHistory((history) => [
+      ...history,
+      { message: res.data.answer, isAngelo: true, timestamp: new Date() },
+    ]);
+  };
+  const submitSuggestion = async (suggestion: string) => {
+    setChatHistory((history) => [
+      ...history,
+      { message: suggestion, isAngelo: false, timestamp: new Date() },
+    ]);
+    const res = await api.post("https://angelo-qna.herokuapp.com/angeloqna", {
+      message: suggestion,
     });
     setChatHistory((history) => [
       ...history,
@@ -95,7 +116,7 @@ const ChatBot: React.FC = () => {
           submit();
         }}
       >
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", marginBottom: "1rem" }}>
           <Input
             fullWidth
             placeholder="Enter message..."
@@ -105,6 +126,38 @@ const ChatBot: React.FC = () => {
           <Button label="Submit" type="submit" />
         </div>
       </form>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <Button
+          label={suggestedPrompts.greeting}
+          small
+          onClick={() => submitSuggestion(suggestedPrompts.greeting)}
+          style={{ marginRight: "0.5rem", marginBottom: "0.5rem" }}
+        />
+        <Button
+          label={suggestedPrompts.introduction}
+          small
+          onClick={() => submitSuggestion(suggestedPrompts.introduction)}
+          style={{ marginRight: "0.5rem", marginBottom: "0.5rem" }}
+        />
+        <Button
+          label={suggestedPrompts.favouriteFood}
+          small
+          onClick={() => submitSuggestion(suggestedPrompts.favouriteFood)}
+          style={{ marginRight: "0.5rem", marginBottom: "0.5rem" }}
+        />
+        <Button
+          label={suggestedPrompts.career}
+          small
+          onClick={() => submitSuggestion(suggestedPrompts.career)}
+          style={{ marginRight: "0.5rem", marginBottom: "0.5rem" }}
+        />
+        <Button
+          label={suggestedPrompts.crypto}
+          small
+          onClick={() => submitSuggestion(suggestedPrompts.crypto)}
+          style={{ marginRight: "0.5rem", marginBottom: "0.5rem" }}
+        />
+      </div>
     </>
   );
 };
